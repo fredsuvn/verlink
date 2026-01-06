@@ -230,7 +230,7 @@ public class VerLinkFrame extends JFrame {
         return null;
     }
 
-    static void main() throws Exception {
+    public static void main(String[] args) throws Exception {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         SwingUtilities.invokeLater(() -> new VerLinkFrame().setVisible(true));
     }
