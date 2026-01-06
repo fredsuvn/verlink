@@ -2,7 +2,7 @@ name: Build and Release
 
 on:
   release:
-    types: [created]
+    types: [ created ]
 
 jobs:
   build:
@@ -36,17 +36,6 @@ jobs:
       - name: Create ZIP archive
         run: ./gradlew createZip
         shell: bash
-
-      - name: Upload application image as asset
-        if: github.event_name == 'release'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/dist/VerLink/VerLink.exe
-          asset_name: VerLink.exe
-          asset_content_type: application/vnd.microsoft.portable-executable
 
       - name: Upload ZIP archive as asset
         if: github.event_name == 'release'
