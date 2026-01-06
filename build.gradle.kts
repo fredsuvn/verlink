@@ -82,3 +82,11 @@ tasks.register("createZip", Exec::class) {
     zipOutput.absolutePath
   )
 }
+
+tasks.register("printVersion") {
+  group = "version"
+  description = "Prints the project version"
+  doLast {
+    println(project.version)
+  }
+}
